@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "f8b83fc7-e5b7-4ea8-ab69-1ba4c0f63e0c",
+		"name": "Capstone - Pinterest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38733442"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bao23@gmail.com\",\r\n    \"mat_khau\": \"123\" ,\r\n    \"ho_ten\": \"Nguyen Bao\",\r\n    \"tuoi\": 18,\r\n    \"anh_dai_dien\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/auth/register",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bao23@gmail.com\",\r\n    \"mat_khau\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/auth/login",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "GetAllImage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/image/",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"image",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchByName",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/image/search?name=hinhanh",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"image",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "hinhanh"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDetailById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetComment",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "CheckSave",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/image/delete/2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"image",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/image/add",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"image",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetUser",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetSavedImage",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetPostedImage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/user/saved",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"saved"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConfigInformation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ho_ten\": \"Bao Bao\",\r\n    \"tuoi\": 19,\r\n    \"anh_dai_dien\": \"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/user/config",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"config"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const response = pm.response.json()\r",
+					"\r",
+					"if(response.status == `error`) return\r",
+					"\r",
+					"const accessToken = response.metaData.accessToken\r",
+					"const refreshToken = response.metaData.refreshToken\r",
+					"\r",
+					"pm.collectionVariables.set(\"accessToken\", accessToken);\r",
+					"pm.collectionVariables.set(\"refreshToken\", refreshToken)"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": ""
+		},
+		{
+			"key": "refreshToken",
+			"value": ""
+		}
+	]
+}
